@@ -1,16 +1,33 @@
-### Hi there 👋
+<!-- Project Title -->
+# Hey there! I'm Dennis Akpotaire
 
-<!--
-**dennis-22-csc/dennis-22-csc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<!-- Project Description -->
+## A Software Engineer
 
-Here are some ideas to get you started:
+<!-- About Me -->
+## About Me
+- 🌱 I'm currently learning software engineering at ALX
+- 👨‍🎓 I will be starting an online computer science degree later this year
+- 💻 I create awesome stuff using my knowledge of Android, Flutter, and Python
+- 📱 Ask me about programming and mobile application development!
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<!-- Connect with me -->
+## Connect with me
+[<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn" width="30"/>](https://www.linkedin.com/in/dennis-koko-akpotaire) [<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30"/>](https://wa.me/2348105654558)
+
+<table>
+  <tr>
+    <td valign="top">
+      <!-- Most Used Languages Card -->
+      <a href="https://github.com/anuraghazra/github-readme-stats">
+        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dennis-22-csc" alt="Top Langs" />
+      </a>
+    </td>
+    <td valign="top">
+      <!-- GitHub Stats Card -->
+      <a href="https://github.com/anuraghazra/github-readme-stats">
+        <img align="center" src="https://github-readme-stats.vercel.app/api?username=dennis-22-csc&show_icons=true" alt="Dennis's GitHub stats" />
+      </a>
+    </td>
+  </tr>
+</table>
