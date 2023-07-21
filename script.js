@@ -23,61 +23,62 @@ function showMain() {
   }
 
   type();
+	// Set the initial selected card based on currentIndex
+let currentIndex = 0;
+const visibleCards = 1; // Number of visible cards at a time
 
-  // Set the initial selected card based on currentIndex
-  let currentIndex = 0;
-  const visibleCards = 1; // Number of visible cards at a time
-
-  function updateSelectedCard() {
-    articleCards.forEach((card, index) => {
-      if (index === currentIndex) {
-        card.classList.add('selected');
-      } else {
-        card.classList.remove('selected');
-      }
-    });
-  }
-
-  function navigateCardRight() {
-    currentIndex = Math.min(currentIndex + 1, articleCards.length - visibleCards);
-    const cardWidth = articleCards[currentIndex].offsetWidth;
-    articlesContainer.scrollBy({
-      left: cardWidth,
-      behavior: 'smooth'
-    });
-    updateSelectedCard();
-  }
-
-  function navigateCardLeft() {
-    currentIndex = Math.max(currentIndex - 1, 0);
-    const cardWidth = articleCards[currentIndex].offsetWidth;
-    articlesContainer.scrollBy({
-      left: -cardWidth,
-      behavior: 'smooth'
-    });
-    updateSelectedCard();
-  }
-
-  function resizeWindow() {
-    const cardWidth = articleCards[currentIndex].offsetWidth;
-    articlesContainer.scrollTo({
-      left: currentIndex * cardWidth,
-      behavior: 'auto'
-    });
-    updateSelectedCard();
-  }
-
-  // Define the articles container variable
-  const articlesContainer = document.querySelector('.articles-container');
-
-  // Add event listeners to arrow buttons
-  const arrowLeft = document.querySelector('.arrow-left');
-  const arrowRight = document.querySelector('.arrow-right');
-
-  arrowRight.addEventListener('click', navigateCardRight);
-  arrowLeft.addEventListener('click', navigateCardLeft);
-  window.addEventListener('resize', resizeWindow);
+function updateSelectedCard() {
+  articleCards.forEach((card, index) => {
+    if (index === currentIndex) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
 }
+
+function navigateCardRight() {
+  currentIndex = Math.min(currentIndex + 1, articleCards.length - visibleCards);
+  const cardWidth = articleCards[currentIndex].offsetWidth;
+  articlesContainer.scrollTo({
+    left: currentIndex * cardWidth,
+    behavior: 'smooth'
+  });
+  updateSelectedCard();
+}
+
+function navigateCardLeft() {
+  currentIndex = Math.max(currentIndex - 1, 0);
+  const cardWidth = articleCards[currentIndex].offsetWidth;
+  articlesContainer.scrollTo({
+    left: currentIndex * cardWidth,
+    behavior: 'smooth'
+  });
+  updateSelectedCard();
+}
+
+function resizeWindow() {
+  const cardWidth = articleCards[currentIndex].offsetWidth;
+  articlesContainer.scrollTo({
+    left: currentIndex * cardWidth,
+    behavior: 'auto'
+  });
+  updateSelectedCard();
+}
+
+// Define the articles container variable
+const articlesContainer = document.querySelector('.articles-container');
+
+// Add event listeners to arrow buttons
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
+
+arrowRight.addEventListener('click', navigateCardRight);
+arrowLeft.addEventListener('click', navigateCardLeft);
+window.addEventListener('resize', resizeWindow);
+
+  
+ }
 
 showMain();
 
