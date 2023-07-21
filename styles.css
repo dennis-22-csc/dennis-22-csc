@@ -1,93 +1,212 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5;
 }
 
 .intro-container {
   text-align: center;
-  color: #333;
+  margin-bottom: 30px;
 }
 
 h1 {
   font-size: 36px;
-  margin-bottom: 20px;
-}
-
-#name {
-  color: #007bff;
-  /* Add any preferred font style here */
-}
-
-.typing-text::after {
-  content: '|';
-  display: inline-block;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.bio-container {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  font-size: 24px;
   margin-bottom: 10px;
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555;
+h2.typing-text {
+  font-size: 24px;
+  color: #777;
 }
 
 .stats-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 800px;
-  margin: 30px auto;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
 }
 
 .stats-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 180px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.stats-card i {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #007bff;
 }
 
 .stats-card h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 70px;
+  margin: 5px 0;
 }
 
 .stats-card p {
-  font-size: 18px;
-  color: #555;
+  margin: 0;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between cards as needed */
+}
+
+.project-card {
+  flex: 0 0 calc(25% - 10px);
+  max-width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  font-size: 30px;
+}
+
+.project-card p {
+}
+
+.top-read {
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+.top-read i {
+  margin: 0;
+  font-size: 13px;
+}
+
+.top-read span {
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.article-date {
+  margin: 0;
+  font-size: 13px;
+}
+
+.article-container {
+  margin: 50px;
+}
+
+.articles-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+  
+.articles-container::-webkit-scrollbar {
+  display: none;
+}
+
+.article-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  padding: 10px;
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.article-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-card h3 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.article-card p {
+}
+
+.ellipsis {
+  color: #aaa;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.article-card.selected {
+  border: 2px solid blue;
+  box-shadow: 0 0 5px blue;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.read-now-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #4d4d4d;
+  cursor: pointer;
+}
+
+.button i {
+  margin: 0;
+}
+
+.button span {
+  margin-left: 10px;
 }
 

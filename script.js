@@ -1,56 +1,83 @@
-const nameElement = document.getElementById('name');
-const professionElement = document.getElementById('profession');
-const introContainer = document.querySelector('.intro-container');
-const bioContainer = document.querySelector('.bio-container');
-const statsContainer = document.querySelector('.stats-container');
-const articlesContainer = document.querySelector('.articles-container');
-const buttonsContainer = document.querySelector('.buttons-container');
+// Function to show the main container
+function showMain() {
+  const nameElement = document.getElementById('name');
+  const professionElement = document.getElementById('profession');
+  const mainContainer = document.querySelector('.main-container');
+  const articleCards = document.querySelectorAll('.article-card');
 
-const name = 'Dennis Akpotaire';
-const profession = 'A Software Engineer';
+  const name = 'Dennis Akpotaire';
+  const profession = 'A Software Engineer';
 
-let index = 0;
-const typingDelay = 100; // Adjust typing speed (in milliseconds)
+  let index = 0;
+  const typingDelay = 100; // Adjust typing speed (in milliseconds)
 
-function type() {
-  if (index < name.length) {
-    nameElement.textContent += name.charAt(index);
-    index++;
-    setTimeout(type, typingDelay);
-  } else {
-    professionElement.textContent = profession;
-    setTimeout(showBio, 1000);
+  function type() {
+    if (index < name.length) {
+      nameElement.textContent += name.charAt(index);
+      index++;
+      setTimeout(type, typingDelay);
+    } else {
+      professionElement.textContent = profession;
+      mainContainer.style.display = 'block';
+    }
   }
+
+  type();
+
+  // Set the initial selected card based on currentIndex
+  let currentIndex = 0;
+  const visibleCards = 1; // Number of visible cards at a time
+
+  function updateSelectedCard() {
+    articleCards.forEach((card, index) => {
+      if (index === currentIndex) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+  }
+
+  function navigateCardRight() {
+    currentIndex = Math.min(currentIndex + 1, articleCards.length - visibleCards);
+    const cardWidth = articleCards[currentIndex].offsetWidth;
+    articlesContainer.scrollBy({
+      left: cardWidth,
+      behavior: 'smooth'
+    });
+    updateSelectedCard();
+  }
+
+  function navigateCardLeft() {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    const cardWidth = articleCards[currentIndex].offsetWidth;
+    articlesContainer.scrollBy({
+      left: -cardWidth,
+      behavior: 'smooth'
+    });
+    updateSelectedCard();
+  }
+
+  function resizeWindow() {
+    const cardWidth = articleCards[currentIndex].offsetWidth;
+    articlesContainer.scrollTo({
+      left: currentIndex * cardWidth,
+      behavior: 'auto'
+    });
+    updateSelectedCard();
+  }
+
+  // Define the articles container variable
+  const articlesContainer = document.querySelector('.articles-container');
+
+  // Add event listeners to arrow buttons
+  const arrowLeft = document.querySelector('.arrow-left');
+  const arrowRight = document.querySelector('.arrow-right');
+
+  arrowRight.addEventListener('click', navigateCardRight);
+  arrowLeft.addEventListener('click', navigateCardLeft);
+  window.addEventListener('resize', resizeWindow);
 }
 
-function showBio() {
-  bioContainer.style.display = 'block';
-  setTimeout(showStat, 1000);
-}
-function showStat() {
-  statsContainer.style.display = 'block';
-}
-function showProject() {
-  introContainer.style.display = 'block';
-  bioContainer.style.display = 'block';
-  statsContainer.style.display = 'block';
-  articlesContainer.style.display = 'block';
-  buttonsContainer.style.display = 'block';
-}
-function showArticle() {
-  introContainer.style.display = 'block';
-  bioContainer.style.display = 'block';
-  statsContainer.style.display = 'block';
-  articlesContainer.style.display = 'block';
-  buttonsContainer.style.display = 'block';
-}
-function showButton() {
-  introContainer.style.display = 'block';
-  bioContainer.style.display = 'block';
-  statsContainer.style.display = 'block';
-  articlesContainer.style.display = 'block';
-  buttonsContainer.style.display = 'block';
-}
-
-type();
+showMain();
 
