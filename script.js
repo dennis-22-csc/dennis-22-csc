@@ -1,3 +1,17 @@
+// Function to check if the user is using a mobile device
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Redirect to the mobile webpage if the user is on a mobile device
+    if (isMobileDevice()) {
+      // Define the URL of your mobile webpage
+      const mobileWebpageURL = "https://denniscode.tech/mobile.html";
+
+      // Redirect to the mobile webpage
+      window.location.href = mobileWebpageURL;
+    }
+
 // Function to show the main container
 function showMain() {
   const nameElement = document.getElementById('name');
