@@ -10,6 +10,8 @@
 
       // Redirect to the mobile webpage
       window.location.href = mobileWebpageURL;
+    } else {
+      showMain();
     }
 
 // Function to show the main container
@@ -93,6 +95,4 @@ window.addEventListener('resize', resizeWindow);
 
   
  }
-
-showMain();
 
