@@ -10,7 +10,9 @@
 
       // Redirect to the mobile webpage
       window.location.href = mobileWebpageURL;
+      document.body.style.display = "block";
     } else {
+      document.body.style.display = "block";
       showMain();
     }
 
