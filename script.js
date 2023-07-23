@@ -22,11 +22,9 @@ function showMain() {
   }
 
   type();
-  
- 
- // JavaScript code to generate and display the article cards dynamically
-  document.addEventListener("DOMContentLoaded", function () {
-    
+
+  // JavaScript code to generate and display the article cards dynamically
+  document.addEventListener('DOMContentLoaded', function () {
     const articleData = [
       {
         title: "Article Title 1",
@@ -39,108 +37,97 @@ function showMain() {
         introductoryText: "Introductory text for Article 2...",
       },
       {
-    title: 'Article Title 3',
-    date: 'August 1, 2023',
-    introductoryText: 'Introductory text for Article 3...'
-  },
-  {
-    title: 'Article Title 4',
-    date: 'August 5, 2023',
-    introductoryText: 'Introductory text for Article 4...'
-  },
-  {
-    title: 'Article Title 5',
-    date: 'August 10, 2023',
-    introductoryText: 'Introductory text for Article 5...'
-  },
-  {
-    title: 'Article Title 6',
-    date: 'August 15, 2023',
-    introductoryText: 'Introductory text for Article 6...'
-  },
-  {
-    title: 'Article Title 7',
-    date: 'August 20, 2023',
-    introductoryText: 'Introductory text for Article 7...'
-  }
+        title: 'Article Title 3',
+    	date: 'August 1, 2023',
+    	introductoryText: 'Introductory text for Article 3...'
+      },
+      {
+    	title: 'Article Title 4',
+    	date: 'August 5, 2023',
+    	introductoryText: 'Introductory text for Article 4...'
+      },
+      {
+    	title: 'Article Title 5',
+    	date: 'August 10, 2023',
+    	introductoryText: 'Introductory text for Article 5...'
+      },
+      {
+    	title: 'Article Title 6',
+    	date: 'August 15, 2023',
+    	introductoryText: 'Introductory text for Article 6...'
+      },
+      {
+    	title: 'Article Title 7',
+    	date: 'August 20, 2023',
+    	introductoryText: 'Introductory text for Article 7...'
+      }
     ];
-    
-    
 
     if (!isMobileDevice()) {
-       showCardDesktop(articleData, articleData.length);
-   } else {
+      showCardDesktop(articleData, articleData.length);
+    } else {
       showCardMobile(articleData, articleData.length);
-   }
- });
-       
+    }
+  });
 }
 
 function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
- 
+
+function createArticleCard(title, date, introductoryText) {
+  const articleCard = document.createElement('div');
+  articleCard.classList.add('article-card');
+
+  const topReadDiv = document.createElement('div');
+  topReadDiv.classList.add('top-read');
+  const starIcon = document.createElement('i');
+  starIcon.classList.add('fas', 'fa-star');
+  const topReadSpan = document.createElement('span');
+  topReadSpan.textContent = 'Top Read';
+  topReadDiv.appendChild(starIcon);
+  topReadDiv.appendChild(topReadSpan);
+
+  const articleTitle = document.createElement('h3');
+  articleTitle.textContent = title;
+
+  const articleDate = document.createElement('span');
+  articleDate.classList.add('article-date');
+  articleDate.textContent = date;
+
+  const introductoryTextElement = document.createElement('p');
+  introductoryTextElement.textContent = introductoryText;
+
+  const ellipsisSpan = document.createElement('span');
+  ellipsisSpan.classList.add('ellipsis');
+  ellipsisSpan.textContent = '...';
+  introductoryTextElement.appendChild(ellipsisSpan);
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('button-container');
+  const readNowBtn = document.createElement('button');
+  readNowBtn.classList.add('read-now-btn');
+  readNowBtn.textContent = 'Read';
+  buttonContainer.appendChild(readNowBtn);
+
+  articleCard.appendChild(topReadDiv);
+  articleCard.appendChild(articleTitle);
+  articleCard.appendChild(articleDate);
+  articleCard.appendChild(introductoryTextElement);
+  articleCard.appendChild(buttonContainer);
+
+  return articleCard;
+}
 
 function showCardDesktop(articleData, totalCards) {
   const articlesContainer = document.querySelector('.articles-container');
   let currentIndex = 0;
   const visibleCards = 1; // Number of visible cards at a time
-  
-  function createArticleCard(title, date, introductoryText) {
-      const articleCard = document.createElement("div");
-      articleCard.classList.add("article-card");
-
-      const topReadDiv = document.createElement("div");
-      topReadDiv.classList.add("top-read");
-      const starIcon = document.createElement("i");
-      starIcon.classList.add("fas", "fa-star");
-      const topReadSpan = document.createElement("span");
-      topReadSpan.textContent = "Top Read";
-      topReadDiv.appendChild(starIcon);
-      topReadDiv.appendChild(topReadSpan);
-
-      const articleTitle = document.createElement("h3");
-      articleTitle.textContent = title;
-
-      const articleDate = document.createElement("span");
-      articleDate.classList.add("article-date");
-      articleDate.textContent = date;
-
-      const introductoryTextElement = document.createElement("p");
-      introductoryTextElement.textContent = introductoryText;
-
-      const ellipsisSpan = document.createElement("span");
-      ellipsisSpan.classList.add("ellipsis");
-      ellipsisSpan.textContent = "...";
-      introductoryTextElement.appendChild(ellipsisSpan);
-
-      const buttonContainer = document.createElement("div");
-      buttonContainer.classList.add("button-container");
-      const readNowBtn = document.createElement("button");
-      readNowBtn.classList.add("read-now-btn");
-      readNowBtn.textContent = "Read";
-      buttonContainer.appendChild(readNowBtn);
-
-      articleCard.appendChild(topReadDiv);
-      articleCard.appendChild(articleTitle);
-      articleCard.appendChild(articleDate);
-      articleCard.appendChild(introductoryTextElement);
-      articleCard.appendChild(buttonContainer);
-
-      return articleCard;
-    }
-
-
 
   for (const data of articleData) {
-      const articleCard = createArticleCard(
-         data.title,
-         data.date,
-         data.introductoryText
-       );
-      articlesContainer.appendChild(articleCard);
+    const articleCard = createArticleCard(data.title, data.date, data.introductoryText);
+    articlesContainer.appendChild(articleCard);
   }
-    
 
   // Get the dynamically created article cards
   const articleCards = Array.from(document.querySelectorAll('.article-card'));
@@ -192,77 +179,26 @@ function showCardDesktop(articleData, totalCards) {
   arrowLeft.addEventListener('click', navigateCardLeft);
   window.addEventListener('resize', resizeWindow);
 
-  
   updateSelectedCard();
 }
 
 function showCardMobile(articleData, totalCards) {
   let currentIndex = 0;
   const articlesContainer = document.querySelector('.articles-container');
- 
-   //Function to create the article card element
-    function createArticleCard(title, date, introductoryText) {
-      const articleCard = document.createElement("div");
-      articleCard.classList.add("article-card");
+  let articleCard;
 
-      const topReadDiv = document.createElement("div");
-      topReadDiv.classList.add("top-read");
-      const starIcon = document.createElement("i");
-      starIcon.classList.add("fas", "fa-star");
-      const topReadSpan = document.createElement("span");
-      topReadSpan.textContent = "Top Read";
-      topReadDiv.appendChild(starIcon);
-      topReadDiv.appendChild(topReadSpan);
+  articleCard = createArticleCard(articleData[currentIndex].title, articleData[currentIndex].date, articleData[currentIndex].introductoryText);
+  articlesContainer.appendChild(articleCard); // Add the card to the DOM
 
-      const articleTitle = document.createElement("h3");
-      articleTitle.textContent = title;
+  articleCard.classList.add('selected');
 
-      const articleDate = document.createElement("span");
-      articleDate.classList.add("article-date");
-      articleDate.textContent = date;
+  function updateCardContent() {
+    // Update the content of the current article card based on the currentIndex
+    articleCard.querySelector('h3').textContent = articleData[currentIndex].title;
+    articleCard.querySelector('.article-date').textContent = articleData[currentIndex].date;
+    articleCard.querySelector('p').textContent = articleData[currentIndex].introductoryText;
 
-      const introductoryTextElement = document.createElement("p");
-      introductoryTextElement.textContent = introductoryText;
-
-      const ellipsisSpan = document.createElement("span");
-      ellipsisSpan.classList.add("ellipsis");
-      ellipsisSpan.textContent = "...";
-      introductoryTextElement.appendChild(ellipsisSpan);
-
-      const buttonContainer = document.createElement("div");
-      buttonContainer.classList.add("button-container");
-      const readNowBtn = document.createElement("button");
-      readNowBtn.classList.add("read-now-btn");
-      readNowBtn.textContent = "Read";
-      buttonContainer.appendChild(readNowBtn);
-
-      articleCard.appendChild(topReadDiv);
-      articleCard.appendChild(articleTitle);
-      articleCard.appendChild(articleDate);
-      articleCard.appendChild(introductoryTextElement);
-      articleCard.appendChild(buttonContainer);
-
-      return articleCard;
-    }
-    
-articlesContainer.appendChild(createArticleCard(articleData[currentIndex].title, articleData[currentIndex].date, articleData[currentIndex].introductoryText));
-
-updateSelectedCard();
-
-
-function updateCardContent() {
-    articlesContainer.innerHTML = ''; // Clear the current content
-
-    // Create a new article card using the currentIndex
-    articlesContainer.appendChild(
-      createArticleCard(
-        articleData[currentIndex].title,
-        articleData[currentIndex].date,
-        articleData[currentIndex].introductoryText
-      )
-    );
-
-    updateSelectedCard(); // Update the selected card style
+    articleCard.classList.add('selected');
   }
 
   function navigateCardRight() {
@@ -275,27 +211,14 @@ function updateCardContent() {
     updateCardContent();
   }
 
-  function updateSelectedCard() {
-    const articleCards = document.querySelectorAll('.article-card');
-    articleCards.forEach((card, index) => {
-      if (index === currentIndex) {
-        card.classList.add('selected');
-      } else {
-        card.classList.remove('selected');
-      }
-    });
-  }
-
   // Add event listeners to arrow buttons
   const arrowLeft = document.querySelector('.arrow-left');
   const arrowRight = document.querySelector('.arrow-right');
 
   arrowRight.addEventListener('click', navigateCardRight);
   arrowLeft.addEventListener('click', navigateCardLeft);
-  
-
 }
 
-
+// Start the main content display
 showMain();
 
