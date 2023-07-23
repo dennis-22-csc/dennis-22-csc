@@ -1,4 +1,3 @@
-// Function to show the main container
 function showMain() {
   const nameElement = document.getElementById('name');
   const professionElement = document.getElementById('profession');
@@ -130,9 +129,6 @@ function showMain() {
       showCardMobile(articleData, 7);
    }
  });
-
-
-  
        
 }
 
@@ -211,7 +207,7 @@ function showCardMobile(articleData, totalCards) {
     // Update the content of the single card based on the currentIndex
     articleTitle.textContent = articleData[currentIndex].title;
     articleDate.textContent = articleData[currentIndex].date;
-    articleIntro.textContent = articleData[currentIndex].intro;
+    articleIntro.textContent = articleData[currentIndex].introductoryText;
 
     updateSelectedCard();
   }
