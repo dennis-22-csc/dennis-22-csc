@@ -62,11 +62,42 @@ function showMain() {
     	introductoryText: 'Introductory text for Article 7...'
       }
     ];
+    
+    const projectsData = [
+  {
+    name: "Project 1",
+    description: "A project about...",
+    link: "project1-link",
+  },
+  {
+    name: "Project 2",
+    description: "A project about...",
+    link: "project2-link",
+  },
+  {
+    name: "Project 3",
+    description: "A project about...",
+    link: "project3-link",
+  },
+  {
+    name: "Project 4",
+    description: "A project about...",
+    link: "project3-link",
+  },
+  {
+    name: "Project 5",
+    description: "A project about...",
+    link: "project3-link",
+  },
+  
+];
+
+    populateProjects(projectsData);
 
     if (!isMobileDevice()) {
-      showCardDesktop(articleData, articleData.length);
+      showArticleCardDesktop(articleData, articleData.length);
     } else {
-      showCardMobile(articleData, articleData.length);
+      showArticleCardMobile(articleData, articleData.length);
     }
   });
 }
@@ -119,7 +150,7 @@ function createArticleCard(title, date, introductoryText) {
   return articleCard;
 }
 
-function showCardDesktop(articleData, totalCards) {
+function showArticleCardDesktop(articleData, totalCards) {
   const articlesContainer = document.querySelector('.articles-container');
   let currentIndex = 0;
   const visibleCards = 1; // Number of visible cards at a time
@@ -182,7 +213,7 @@ function showCardDesktop(articleData, totalCards) {
   updateSelectedCard();
 }
 
-function showCardMobile(articleData, totalCards) {
+function showArticleCardMobile(articleData, totalCards) {
   let currentIndex = 0;
   const articlesContainer = document.querySelector('.articles-container');
   let articleCard;
@@ -218,6 +249,49 @@ function showCardMobile(articleData, totalCards) {
   arrowRight.addEventListener('click', navigateCardRight);
   arrowLeft.addEventListener('click', navigateCardLeft);
 }
+
+function navigateToProject(projectLink) {
+  alert("Navigating to project with link: ", projectLink);
+}
+
+function createProjectCard(project) {
+  const projectCard = document.createElement("div");
+  projectCard.classList.add("project-card");
+  projectCard.onclick = function() {
+    navigateToProject(project.link);
+  };
+
+  const heading = document.createElement("h3");
+  heading.textContent = project.name;
+
+  const description = document.createElement("p");
+  description.textContent = project.description;
+
+  const link = document.createElement("a");
+  link.href = "#";
+  link.classList.add("view-link");
+  link.id = project.link;
+  link.textContent = "View";
+
+  const linkWrapper = document.createElement("p");
+  linkWrapper.appendChild(link);
+
+  projectCard.appendChild(heading);
+  projectCard.appendChild(description);
+  projectCard.appendChild(linkWrapper);
+
+  return projectCard;
+}
+
+function populateProjects(projectData) {
+  const projectsContainer = document.querySelector(".projects-container");
+
+  projectData.forEach((project) => {
+    const projectCard = createProjectCard(project);
+    projectsContainer.appendChild(projectCard);
+  });
+}
+
 
 // Start the main content display
 showMain();
