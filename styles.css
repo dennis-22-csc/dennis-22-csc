@@ -95,6 +95,11 @@ h2.typing-text {
 }
 
 
+.article-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+      
 @media (max-width: 767px) {
     .articles-container {
         display: flex;
@@ -120,10 +125,6 @@ h2.typing-text {
   
 /* Desktop and laptops */
     @media (min-width: 768px) {
-      .article-container {
-        margin-top: 50px;
-        margin-bottom: 50px;
-      }
 
       .articles-container {
         display: flex;

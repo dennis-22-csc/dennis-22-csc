@@ -94,7 +94,7 @@ function showMain() {
 
     populateProjects(projectsData);
 
-    if (!isMobileDevice()) {
+    if (isMobileDevice()) {
       showArticleCardDesktop(articleData, articleData.length);
     } else {
       showArticleCardMobile(articleData, articleData.length);
