@@ -183,8 +183,13 @@ h2.typing-text {
 }
 
 .ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: #aaa;
 }
+
 
 .article-card.selected {
   border: 2px solid blue;

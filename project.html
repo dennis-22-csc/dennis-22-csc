@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Details</title>
+  
   <style>
   body {
   font-family: Arial, sans-serif;
@@ -131,6 +131,7 @@
     const project = JSON.parse(payload);
     
     // Populate the UI with the project data
+    document.title = project.name;
     document.querySelector('.title').textContent = project.name;
     document.querySelector('.description').textContent = project.description;
     document.querySelector('video').src = project.video;

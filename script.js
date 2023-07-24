@@ -25,87 +25,68 @@ function showMain() {
 
   // JavaScript code to generate and display the article cards dynamically
   document.addEventListener('DOMContentLoaded', function () {
+  
     const articleData = [
       {
-        id: '1',
-        title: "Article Title 1",
-        date: "August 1, 2023",
-        introductoryText: "Introductory text for Article 1...",
-        link: 'http'
+        title: "Creating a URL safehouse in Android",
+        date: "June 29, 2023",
+        introductoryText: "I was trying to open some links to the LinkedIn platform on some websites but the LinkedIn app kept crashing. I tried repeatedly to no avail.",
+        link: 'https://denniscode.hashnode.dev/creating-a-url-safehouse-in-android'
       },
       {
-        id: '2',
-        title: "Article Title 2",
-        date: "August 2, 2023",
-        introductoryText: "Introductory text for Article 2...",
-        link: 'hffp'
-      },
-      {
-        id: '3',
-        title: 'Article Title 3',
-    	date: 'August 1, 2023',
-    	introductoryText: 'Introductory text for Article 3...', 
-    	link: 'hmmp'
-      },
-      {
-        id: '4',
-    	title: 'Article Title 4',
-    	date: 'August 5, 2023',
-    	introductoryText: 'Introductory text for Article 4...', 
-    	link: 'hssp'
-      },
-      {
-        id: '5',
-    	title: 'Article Title 5',
-    	date: 'August 10, 2023',
-    	introductoryText: 'Introductory text for Article 5...', 
-    	link: 'hbbp'
-      },
-      {
-        id: '6',
-    	title: 'Article Title 6',
-    	date: 'August 15, 2023',
-    	introductoryText: 'Introductory text for Article 6...', 
-    	link: 'hqqp'
-      },
-      {
-        id: '7',
-    	title: 'Article Title 7',
-    	date: 'August 20, 2023',
-    	introductoryText: 'Introductory text for Article 7...', 
-    	link: 'hccp'
+        title: "Integrate reverse location search in your Android app (Flutter)",
+        date: "July 4, 2023",
+        introductoryText: "This tutorial teaches you how to implement getting the address location of users using their longitude and latitude information in your Android app in Flutter",
+        link: 'https://denniscode.hashnode.dev/integrate-reverse-location-search-in-your-flutter-android-app'
       }
     ];
     
     const projectsData = [
   {
-    name: "Project 1",
-    description: "A project about...",
+    name: "Collabio",
+    description: 'An Upwork-like platform for collaborations between designers and developers. Easily find collaborators for your personal projects and projects to collaborate on.',
     video: 'https://youtube',
-    feature: ['mysql', 'network', 'chat'],
+    feature: ['Firebase email authentication', 'Firebase email login', 
+'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
     user_interface: ['Flutter'],
-    server: ['nginx'],
-    database: ['mysql'],
+    server: ['Nginx', 'Gunicorn'],
+    database: ['SQLite', 'MySQL'],
     trial: 'https://play.google',
     github: 'https://github.com'
   },
   {
-    name: "Project 2",
-    description: "A project about..."
+    name: "ShareIt",
+    description: "An Android app that users can store URLs in and easily retrieved later. Common use cases includes when a user is doing research and is encountering a lot of links that should be explored later. Another use case is when a user encounters an article, but can't afford to read it at that moment. Rather than letting it disappear into thin air, the user can share it to the app and easily retrieve it later.",
+    video: 'https://youtube',
+    feature: ['Implemented Android URL sharing Intent', 'Load URLs via RecyclerView', 'Swipe to delete URL', 'Long press to copy URL', 'Click to open URL in browser', 'Auto persist copied URL'],
+    user_interface: ['XML'],
+    server: [''],
+    database: ['SQLite'],
+    trial: 'https://play.google',
+    github: 'https://github.com'
   },
   {
-    name: "Project 3",
-    description: "A project about..."
+    name: "FashionHub",
+    description: "A website for the purchase of fashion wears. This project is a portfolio project jointly created in the ALX software engineering program.",
+    video: 'https://youtube',
+    feature: ['Dynamically load images from a CDN', 'Dynamically create image containers', 'Search functionality', 'Filter functionality', 'Payment validation', 'Automated email using SMTP'],
+    user_interface: ['HTML' ,'CSS', 'Javascript'],
+    server: ['Nginx', 'Gunicorn'],
+    database: ['MySQL'],
+    trial: 'https://play.google',
+    github: 'https://github.com'
   },
   {
-    name: "Project 4",
-    description: "A project about..."
-  },
-  {
-    name: "Project 5",
-    description: "A project about..."
-  },
-  
+    name: "T-Store",
+    description: "An Android app for the purchase of airtime and data. The project has been put on hold. This is due to an issue with the backend VTU vendor.",
+    video: 'https://youtube',
+    feature: ['Creating grids of cards in Flutter', 'Creating a form in Flutter', 'Connecting to an external API in a server'],
+    user_interface: ['Flutter'],
+    server: ['Nginx', 'Gunicorn'],
+    database: [''],
+    trial: 'https://play.google',
+    github: 'https://github.com'
+  }
 ];
 
     populateProjects(projectsData);
@@ -125,6 +106,9 @@ function isMobileDevice() {
 function createArticleCard(title, date, introductoryText, link) {
   const articleCard = document.createElement('div');
   articleCard.classList.add('article-card');
+  articleCard.dataset.link = link;
+  articleCard.addEventListener('click', handleReadNowClick);
+  
 
   const topReadDiv = document.createElement('div');
   topReadDiv.classList.add('top-read');
@@ -144,19 +128,14 @@ function createArticleCard(title, date, introductoryText, link) {
 
   const introductoryTextElement = document.createElement('p');
   introductoryTextElement.textContent = introductoryText;
+  introductoryTextElement.classList.add("ellipsis");
 
-  const ellipsisSpan = document.createElement('span');
-  ellipsisSpan.classList.add('ellipsis');
-  ellipsisSpan.textContent = '...';
-  introductoryTextElement.appendChild(ellipsisSpan);
 
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('button-container');
   const readNowBtn = document.createElement('button');
   readNowBtn.classList.add('read-now-btn');
   readNowBtn.textContent = 'Read';
-  readNowBtn.dataset.link = link;
-  readNowBtn.addEventListener('click', handleReadNowClick);
   buttonContainer.appendChild(readNowBtn);
 
   articleCard.appendChild(topReadDiv);
@@ -239,14 +218,12 @@ function showArticleCardMobile(articleData, totalCards) {
   articleCard = createArticleCard(articleData[currentIndex].title, articleData[currentIndex].date, articleData[currentIndex].introductoryText, articleData[currentIndex].link);
   articlesContainer.appendChild(articleCard); // Add the card to the DOM
 
-  articleCard.classList.add('selected');
-
   function updateCardContent() {
     // Update the content of the current article card based on the currentIndex
     articleCard.querySelector('h3').textContent = articleData[currentIndex].title;
     articleCard.querySelector('.article-date').textContent = articleData[currentIndex].date;
     articleCard.querySelector('p').textContent = articleData[currentIndex].introductoryText;
-    articleCard.querySelector('.read-now-btn').dataset.link = articleData[currentIndex].link;
+    articleCard.dataset['link'] = articleData[currentIndex].link;
     
     articleCard.classList.add('selected');
   }
@@ -277,12 +254,15 @@ function navigateToProject(project) {
   const queryParams = new URLSearchParams({ project: projectJSON }).toString();
 
   // Navigate to the target page with the query parameters
-  window.location.href = 'https://denniscode.tech/project.html?' + queryParams;
+  window.open('project.html?' + queryParams, '_blank');
 }
 
 function handleReadNowClick(event) {
-  const link = event.target.dataset.link;
-  alert("Navigating to article with link: " + link);
+  const link = event.currentTarget.dataset.link;
+  //const link = event.target.closest('.article-card').dataset.link;
+  if (link) {
+    window.open(link, '_blank');
+  }
 }
 
 function createProjectCard(project) {
@@ -297,6 +277,7 @@ function createProjectCard(project) {
 
   const description = document.createElement("p");
   description.textContent = project.description;
+  description.classList.add("ellipsis");
 
   const link = document.createElement("a");
   link.href = '#';
