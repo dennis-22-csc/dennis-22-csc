@@ -290,9 +290,13 @@ function createProjectCard(project) {
   description.textContent = project.description;
 
   const link = document.createElement("a");
-  link.href = "#";
+  link.href = '#';
+  link.id = project.link;
   link.classList.add("view-link");
   link.textContent = "View";
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
 
   const linkWrapper = document.createElement("p");
   linkWrapper.appendChild(link);
