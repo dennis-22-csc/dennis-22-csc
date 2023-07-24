@@ -338,7 +338,8 @@ function handleClick(event) {
 }
 
 function sendMail() {
-  const mailtoUrl = 'mailto: ';
+  const emailAddress = 'rdennisthebusinessguru@gmail.com';
+  const mailtoUrl = `mailto:${encodeURIComponent(emailAddress)}`;
   window.open(mailtoUrl, '_blank');
 }
 
