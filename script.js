@@ -244,7 +244,8 @@ function showArticleCardMobile(articleData, totalCards) {
     articleCard.querySelector('h3').textContent = articleData[currentIndex].title;
     articleCard.querySelector('.article-date').textContent = articleData[currentIndex].date;
     articleCard.querySelector('p').textContent = articleData[currentIndex].introductoryText;
-
+    articleCard.querySelector('.read-now-btn').dataset.link = articleData[currentIndex].link;
+    
     articleCard.classList.add('selected');
   }
 
