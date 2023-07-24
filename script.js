@@ -81,27 +81,29 @@ function showMain() {
   {
     name: "Project 1",
     description: "A project about...",
-    link: 'http',
+    video: 'https://youtube',
+    feature: ['mysql', 'network', 'chat'],
+    user_interface: 'Flutter',
+    server: 'nginx',
+    database: 'mysql',
+    trial: 'https://play.google',
+    github: 'https://github.com'
   },
   {
     name: "Project 2",
-    description: "A project about...",
-    link: "hccp",
+    description: "A project about..."
   },
   {
     name: "Project 3",
-    description: "A project about...",
-    link: "hmmp",
+    description: "A project about..."
   },
   {
     name: "Project 4",
-    description: "A project about...",
-    link: "hnnp",
+    description: "A project about..."
   },
   {
     name: "Project 5",
-    description: "A project about...",
-    link: "hqqp",
+    description: "A project about..."
   },
   
 ];
@@ -267,8 +269,9 @@ function showArticleCardMobile(articleData, totalCards) {
   arrowLeft.addEventListener('click', navigateCardLeft);
 }
 
-function navigateToProject(projectLink) {
-  alert("Navigating to project with link: " + projectLink);
+function navigateToProject(project) {
+  const queryParams = new URLSearchParams(project).toString();
+  window.location.href = 'https://denniscode.tech/project.html?' + queryParams;
 }
 
 function handleReadNowClick(event) {
@@ -280,7 +283,7 @@ function createProjectCard(project) {
   const projectCard = document.createElement("div");
   projectCard.classList.add("project-card");
   projectCard.onclick = function() {
-    navigateToProject(project.link);
+    navigateToProject(project);
   };
 
   const heading = document.createElement("h3");
@@ -291,7 +294,6 @@ function createProjectCard(project) {
 
   const link = document.createElement("a");
   link.href = '#';
-  link.id = project.link;
   link.classList.add("view-link");
   link.textContent = "View";
   link.addEventListener('click', function(event) {

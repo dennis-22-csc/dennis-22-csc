@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  margin: 0 -10px;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.bullet-points {
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+}
+
+.card .section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.user-interface, .server, .database {
+  display: block;
+}
+
+.user-interface, .server, .database {
+  display: none;
+}
+
+.try-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.try-button:hover {
+  background-color: #0056b3;
+}
+
+.github-button {
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.github-button:hover {
+  background-color: #000;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title"></h1>
+    <p class="description"></p>
+    <div class="video-container">
+      <video controls></video>
+    </div>
+    <h2 class="heading">Key Engineering Features</h2>
+    <ul class="bullet-points"></ul>
+
+    <!-- Dynamic Card Section for User Interface, Server, and Database -->
+    <div class="card">
+      <!-- User Interface Section -->
+      <div class="section user-interface">
+        <h3>User Interface</h3>
+        <ul class="ui-list"></ul>
+      </div>
+
+      <!-- Server Section -->
+      <div class="section server">
+        <h3>Server</h3>
+        <ul class="server-list"></ul>
+      </div>
+
+      <!-- Database Section -->
+      <div class="section database">
+        <h3>Database</h3>
+        <ul class="database-list"></ul>
+      </div>
+    </div>
+
+    <button class="try-button">Try it</button>
+    <a class="github-button" target="_blank">GitHub</a>
+  </div>
+  <script>
+    // Retrieve the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const payload = urlParams.get('project');
+
+    // Convert the payload back to a JavaScript object
+    const project = JSON.parse(atob(payload));
+
+    // Populate the UI with the project data
+    document.querySelector('.title').textContent = project.name;
+    document.querySelector('.description').textContent = project.description;
+    document.querySelector('video').src = project.video;
+
+    const bulletPointsList = document.querySelector('.bullet-points');
+    project.feature.forEach(feature => {
+      const listItem = document.createElement('li');
+      listItem.textContent = feature;
+      bulletPointsList.appendChild(listItem);
+    });
+
+    // Function to create list items for each section
+    function createListItems(section, data) {
+      const list = document.querySelector(section);
+      data.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        list.appendChild(listItem);
+      });
+    }
+
+    // Populate User Interface section if data is present
+    if (project.user_interface.length > 0) {
+      createListItems('.ui-list', project.user_interface);
+    } else {
+      document.querySelector('.user-interface').style.display = 'none';
+    }
+
+    // Populate Server section if data is present
+    if (project.server.length > 0) {
+      createListItems('.server-list', project.server);
+    } else {
+      document.querySelector('.server').style.display = 'none';
+    }
+
+    // Populate Database section if data is present
+    if (project.database.length > 0) {
+      createListItems('.database-list', project.database);
+    } else {
+      document.querySelector('.database').style.display = 'none';
+    }
+
+    document.querySelector('.try-button').addEventListener('click', () => {
+      window.open(project.trial, '_blank');
+    });
+
+    document.querySelector('.github-button').href = project.github;
+  </script>
+</body>
+</html>
+
