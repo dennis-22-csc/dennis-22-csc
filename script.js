@@ -60,7 +60,7 @@ function showMain() {
     video: 'https://youtube',
     feature: ['Implemented Android URL sharing Intent', 'Load URLs via RecyclerView', 'Swipe to delete URL', 'Long press to copy URL', 'Click to open URL in browser', 'Auto persist copied URL'],
     user_interface: ['XML'],
-    server: [''],
+    server: [],
     database: ['SQLite'],
     trial: 'https://play.google',
     github: 'https://github.com'
@@ -83,7 +83,7 @@ function showMain() {
     feature: ['Creating grids of cards in Flutter', 'Creating a form in Flutter', 'Connecting to an external API in a server'],
     user_interface: ['Flutter'],
     server: ['Nginx', 'Gunicorn'],
-    database: [''],
+    database: [],
     trial: 'https://play.google',
     github: 'https://github.com'
   }
