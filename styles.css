@@ -77,6 +77,16 @@ h2.typing-text {
     font-size: 30px;
   }
   
+  
+.project-card a {
+  color: #007bff;
+}
+
+
+.project-card a:visited {
+  color: #007bff;
+}
+
   .view-link {
   display: flex;
   justify-content: center;
