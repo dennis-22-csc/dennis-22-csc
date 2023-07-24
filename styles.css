@@ -70,11 +70,24 @@ h2.typing-text {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: box-shadow 0.3s ease;
   }
 
   .project-card h3 {
     font-size: 30px;
   }
+  
+  .view-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card:hover {
+   border: 2px solid blue;
+   box-shadow: 0 0 5px blue;
+}
   
 .top-read {
   display: inline-flex;
@@ -94,11 +107,6 @@ h2.typing-text {
 .article-date {
   margin: 0;
   font-size: 13px;
-}
-
-
-.article-container {
-  
 }
       
 @media (max-width: 767px) {
@@ -164,9 +172,6 @@ h2.typing-text {
   font-size: 30px;
 }
 
-.article-card p {
-}
-
 .ellipsis {
   color: #aaa;
 }
@@ -208,7 +213,7 @@ h2.typing-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px;
+  margin-top: 150px;
 }
 
 .button {
