@@ -27,39 +27,53 @@ function showMain() {
   document.addEventListener('DOMContentLoaded', function () {
     const articleData = [
       {
+        id: '1',
         title: "Article Title 1",
         date: "August 1, 2023",
         introductoryText: "Introductory text for Article 1...",
+        link: 'http'
       },
       {
+        id: '2',
         title: "Article Title 2",
         date: "August 2, 2023",
         introductoryText: "Introductory text for Article 2...",
+        link: 'hffp'
       },
       {
+        id: '3',
         title: 'Article Title 3',
     	date: 'August 1, 2023',
-    	introductoryText: 'Introductory text for Article 3...'
+    	introductoryText: 'Introductory text for Article 3...', 
+    	link: 'hmmp'
       },
       {
+        id: '4',
     	title: 'Article Title 4',
     	date: 'August 5, 2023',
-    	introductoryText: 'Introductory text for Article 4...'
+    	introductoryText: 'Introductory text for Article 4...', 
+    	link: 'hssp'
       },
       {
+        id: '5',
     	title: 'Article Title 5',
     	date: 'August 10, 2023',
-    	introductoryText: 'Introductory text for Article 5...'
+    	introductoryText: 'Introductory text for Article 5...', 
+    	link: 'hbbp'
       },
       {
+        id: '6',
     	title: 'Article Title 6',
     	date: 'August 15, 2023',
-    	introductoryText: 'Introductory text for Article 6...'
+    	introductoryText: 'Introductory text for Article 6...', 
+    	link: 'hqqp'
       },
       {
+        id: '7',
     	title: 'Article Title 7',
     	date: 'August 20, 2023',
-    	introductoryText: 'Introductory text for Article 7...'
+    	introductoryText: 'Introductory text for Article 7...', 
+    	link: 'hccp'
       }
     ];
     
@@ -67,27 +81,27 @@ function showMain() {
   {
     name: "Project 1",
     description: "A project about...",
-    link: "project1-link",
+    link: 'http',
   },
   {
     name: "Project 2",
     description: "A project about...",
-    link: "project2-link",
+    link: "hccp",
   },
   {
     name: "Project 3",
     description: "A project about...",
-    link: "project3-link",
+    link: "hmmp",
   },
   {
     name: "Project 4",
     description: "A project about...",
-    link: "project3-link",
+    link: "hnnp",
   },
   {
     name: "Project 5",
     description: "A project about...",
-    link: "project3-link",
+    link: "hqqp",
   },
   
 ];
@@ -106,7 +120,7 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-function createArticleCard(title, date, introductoryText) {
+function createArticleCard(title, date, introductoryText, link) {
   const articleCard = document.createElement('div');
   articleCard.classList.add('article-card');
 
@@ -139,6 +153,8 @@ function createArticleCard(title, date, introductoryText) {
   const readNowBtn = document.createElement('button');
   readNowBtn.classList.add('read-now-btn');
   readNowBtn.textContent = 'Read';
+  readNowBtn.dataset.link = link;
+  readNowBtn.addEventListener('click', handleReadNowClick);
   buttonContainer.appendChild(readNowBtn);
 
   articleCard.appendChild(topReadDiv);
@@ -156,7 +172,7 @@ function showArticleCardDesktop(articleData, totalCards) {
   const visibleCards = 1; // Number of visible cards at a time
 
   for (const data of articleData) {
-    const articleCard = createArticleCard(data.title, data.date, data.introductoryText);
+    const articleCard = createArticleCard(data.title, data.date, data.introductoryText, data.link);
     articlesContainer.appendChild(articleCard);
   }
 
@@ -218,7 +234,7 @@ function showArticleCardMobile(articleData, totalCards) {
   const articlesContainer = document.querySelector('.articles-container');
   let articleCard;
 
-  articleCard = createArticleCard(articleData[currentIndex].title, articleData[currentIndex].date, articleData[currentIndex].introductoryText);
+  articleCard = createArticleCard(articleData[currentIndex].title, articleData[currentIndex].date, articleData[currentIndex].introductoryText, articleData[currentIndex].link);
   articlesContainer.appendChild(articleCard); // Add the card to the DOM
 
   articleCard.classList.add('selected');
@@ -251,7 +267,12 @@ function showArticleCardMobile(articleData, totalCards) {
 }
 
 function navigateToProject(projectLink) {
-  alert("Navigating to project with link: ", projectLink);
+  alert("Navigating to project with link: " + projectLink);
+}
+
+function handleReadNowClick(event) {
+  const link = event.target.dataset.link;
+  alert("Navigating to article with link: " + link);
 }
 
 function createProjectCard(project) {
@@ -270,7 +291,6 @@ function createProjectCard(project) {
   const link = document.createElement("a");
   link.href = "#";
   link.classList.add("view-link");
-  link.id = project.link;
   link.textContent = "View";
 
   const linkWrapper = document.createElement("p");
