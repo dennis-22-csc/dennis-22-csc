@@ -338,7 +338,7 @@ function handleClick(event) {
 }
 
 function sendMail() {
-  const emailAddress = 'rdennisthebusinessguru@gmail.com';
+  const emailAddress = 'dennisthebusinessguru@gmail.com';
   const mailtoUrl = `mailto:${encodeURIComponent(emailAddress)}`;
   window.open(mailtoUrl, '_blank');
 }
