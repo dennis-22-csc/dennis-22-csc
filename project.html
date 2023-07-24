@@ -7,12 +7,6 @@
   <style>
   body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -51,17 +45,17 @@
 
 .card .section {
   flex: 1;
-  margin: 0 10px;
-}
-
-.user-interface, .server, .database {
-  display: block;
 }
 
 .user-interface, .server, .database {
   display: none;
 }
 
+#nav {
+  display: block;
+  text-align: center;
+ }
+  
 .try-button {
   background-color: #007bff;
   color: #fff;
@@ -96,7 +90,6 @@
 </style>
 </head>
 <body>
-  <div class="container">
     <h1 class="title"></h1>
     <p class="description"></p>
     <div class="video-container">
@@ -125,18 +118,18 @@
         <ul class="database-list"></ul>
       </div>
     </div>
-
+    <div id='nav'>
     <button class="try-button">Try it</button>
     <a class="github-button" target="_blank">GitHub</a>
-  </div>
+    </div>
   <script>
     // Retrieve the query parameters from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const payload = urlParams.get('project');
 
     // Convert the payload back to a JavaScript object
-    const project = JSON.parse(atob(payload));
-
+    const project = JSON.parse(payload);
+    
     // Populate the UI with the project data
     document.querySelector('.title').textContent = project.name;
     document.querySelector('.description').textContent = project.description;
@@ -155,6 +148,7 @@
       data.forEach(item => {
         const listItem = document.createElement('li');
         listItem.textContent = item;
+        listItem.style.margin = '0';
         list.appendChild(listItem);
       });
     }
@@ -162,23 +156,20 @@
     // Populate User Interface section if data is present
     if (project.user_interface.length > 0) {
       createListItems('.ui-list', project.user_interface);
-    } else {
-      document.querySelector('.user-interface').style.display = 'none';
-    }
+      document.querySelector('.user-interface').style.display = 'block';  
+    } 
 
     // Populate Server section if data is present
     if (project.server.length > 0) {
       createListItems('.server-list', project.server);
-    } else {
-      document.querySelector('.server').style.display = 'none';
-    }
+      document.querySelector('.server').style.display = 'block';
+    } 
 
     // Populate Database section if data is present
     if (project.database.length > 0) {
       createListItems('.database-list', project.database);
-    } else {
-      document.querySelector('.database').style.display = 'none';
-    }
+      document.querySelector('.database').style.display = 'block';
+    } 
 
     document.querySelector('.try-button').addEventListener('click', () => {
       window.open(project.trial, '_blank');

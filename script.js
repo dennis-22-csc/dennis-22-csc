@@ -83,9 +83,9 @@ function showMain() {
     description: "A project about...",
     video: 'https://youtube',
     feature: ['mysql', 'network', 'chat'],
-    user_interface: 'Flutter',
-    server: 'nginx',
-    database: 'mysql',
+    user_interface: ['Flutter'],
+    server: ['nginx'],
+    database: ['mysql'],
     trial: 'https://play.google',
     github: 'https://github.com'
   },
@@ -270,7 +270,13 @@ function showArticleCardMobile(articleData, totalCards) {
 }
 
 function navigateToProject(project) {
-  const queryParams = new URLSearchParams(project).toString();
+  // Convert the project object to JSON
+  const projectJSON = JSON.stringify(project);
+
+  // Encode the JSON string as a query parameter
+  const queryParams = new URLSearchParams({ project: projectJSON }).toString();
+
+  // Navigate to the target page with the query parameters
   window.location.href = 'https://denniscode.tech/project.html?' + queryParams;
 }
 
