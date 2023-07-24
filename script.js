@@ -97,6 +97,9 @@ function showMain() {
       showArticleCardMobile(articleData, articleData.length);
     }
   });
+  
+  const buttons = document.querySelectorAll('.button');
+  buttons.forEach(button => button.addEventListener('click', handleClick));
 }
 
 function isMobileDevice() {
@@ -254,7 +257,7 @@ function navigateToProject(project) {
   const queryParams = new URLSearchParams({ project: projectJSON }).toString();
 
   // Navigate to the target page with the query parameters
-  window.open('project.html?' + queryParams, '_blank');
+  window.open('https://denniscode.tech/project.html?' + queryParams, '_blank');
 }
 
 function handleReadNowClick(event) {
@@ -306,7 +309,60 @@ function populateProjects(projectData) {
   });
 }
 
+function handleClick(event) {
+  const button = event.currentTarget;
+  const action = button.dataset.action;
 
-// Start the main content display
+  switch (action) {
+    case 'mail':
+      // Call the function to handle "Send a Mail"
+      sendMail();
+      break;
+    case 'call':
+      // Call the function to handle "Place a Call"
+      placeCall();
+      break;
+    case 'github':
+      // Call the function to handle "Connect on Github"
+      connectOnGithub();
+      break;
+    case 'linkedin':
+      // Call the function to handle "Connect on LinkedIn"
+      connectOnLinkedIn();
+      break;
+    case 'whatsapp':
+      // Call the function to handle "Connect on WhatsApp"
+      connectOnWhatsApp();
+      break;
+  }
+}
+
+function sendMail() {
+  const mailtoUrl = 'mailto: ';
+  window.open(mailtoUrl, '_blank');
+}
+
+function placeCall() {
+  const phoneNumber = "+2348105654558";
+  const callUrl = `tel:${encodeURIComponent(phoneNumber)}`;
+  window.open(callUrl, '_blank');
+}
+
+function connectOnGithub() {
+ const githubUrl = 'https://github.com/dennis-22-csc';
+ window.open(githubUrl, '_blank');
+}
+
+function connectOnLinkedIn() {
+  const linkedinUrl = 'https://www.linkedin.com/in/dennis-koko-akpotaire';
+  window.open(linkedinUrl, '_blank');
+}
+
+function connectOnWhatsApp() {
+  const whatsappUrl = 'https://wa.me/2348105654558';
+  window.open(whatsappUrl, '_blank');
+}
+
+/// Start the main content display
 showMain();
 
