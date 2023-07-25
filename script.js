@@ -57,7 +57,7 @@ function showMain() {
   {
     name: "ShareIt",
     description: "An Android app that users can store URLs in and easily retrieved later. Common use cases includes when a user is doing research and is encountering a lot of links that should be explored later. Another use case is when a user encounters an article, but can't afford to read it at that moment. Rather than letting it disappear into thin air, the user can share it to the app and easily retrieve it later.",
-    video: 'https://www.youtube.com/watch?v=gp969mA5Uo4',
+    video: 'https://www.youtube.com/embed/gp969mA5Uo4',
     feature: ['Implemented Android URL sharing Intent', 'Load URLs via RecyclerView', 'Swipe to delete URL', 'Long press to copy URL', 'Click to open URL in browser', 'Auto persist copied URL'],
     user_interface: ['XML'],
     server: [],

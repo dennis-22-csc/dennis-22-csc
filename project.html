@@ -22,12 +22,18 @@
 }
 
 .video-container {
-  margin: 0 -10px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
 }
 
-.video-container video {
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
 }
 
 .heading {
@@ -97,7 +103,7 @@ ul {
     <h1 class="title"></h1>
     <p class="description"></p>
     <div class="video-container">
-      <video controls></video>
+      <iframe frameborder="0" allowfullscreen></iframe>
     </div>
     <h2 class="heading">Key Engineering Features</h2>
     <ul class="bullet-points"></ul>
@@ -138,7 +144,7 @@ ul {
     document.title = project.name;
     document.querySelector('.title').textContent = project.name;
     document.querySelector('.description').textContent = project.description;
-    document.querySelector('video').src = project.video;
+    document.querySelector('iframe').src = project.video;
 
     const bulletPointsList = document.querySelector('.bullet-points');
     project.feature.forEach(feature => {
