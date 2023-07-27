@@ -73,7 +73,7 @@ function showMain() {
     user_interface: ['HTML' ,'CSS', 'Javascript'],
     server: ['Nginx', 'Gunicorn', 'Python'],
     database: ['MySQL'],
-    trial: 'fashionhub.denniscode.tech',
+    trial: 'https://fashionhub.denniscode.tech',
     github: 'https://github.com/koko-cs23/FashionHub'
   },
   {
