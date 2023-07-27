@@ -257,7 +257,7 @@ function navigateToProject(project) {
   const queryParams = new URLSearchParams({ project: projectJSON }).toString();
 
   // Navigate to the target page with the query parameters
-  window.open('project.html?' + queryParams, '_blank');
+  window.open('https://denniscode.tech/project.html?' + queryParams, '_blank');
 }
 
 function handleReadNowClick(event) {
