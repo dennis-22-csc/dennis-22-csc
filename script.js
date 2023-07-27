@@ -45,47 +45,47 @@ function showMain() {
   {
     name: "Collabio",
     description: 'An Upwork-like platform for collaborations between designers and developers. Easily find collaborators for your personal projects and projects to collaborate on.',
-    video: 'https://youtube',
+    video: 'https://www.youtube.com/embed/JzazIgBVvKg',
     feature: ['Firebase email authentication', 'Firebase email login', 
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
-    user_interface: ['Flutter'],
-    server: ['Nginx', 'Gunicorn'],
+    user_interface: ['Flutter, Dart'],
+    server: ['Nginx', 'Gunicorn, Python'],
     database: ['SQLite', 'MySQL'],
-    trial: 'https://play.google',
-    github: 'https://github.com'
+    trial: '',
+    github: ''
   },
   {
     name: "ShareIt",
     description: "An Android app that users can store URLs in and easily retrieved later. Common use cases includes when a user is doing research and is encountering a lot of links that should be explored later. Another use case is when a user encounters an article, but can't afford to read it at that moment. Rather than letting it disappear into thin air, the user can share it to the app and easily retrieve it later.",
-    video: 'https://www.youtube.com/embed/gp969mA5Uo4',
+    video: 'https://www.youtube.com/embed/aJSo8LoOpEg',
     feature: ['Implemented Android URL sharing Intent', 'Load URLs via RecyclerView', 'Swipe to delete URL', 'Long press to copy URL', 'Click to open URL in browser', 'Auto persist copied URL'],
-    user_interface: ['XML'],
+    user_interface: ['XML', 'Java'],
     server: [],
     database: ['SQLite'],
-    trial: 'https://play.google',
-    github: 'https://github.com'
+    trial: 'https://play.google.com/store/apps/details?id=com.denniscode.shareit',
+    github: 'https://github.com/dennis-22-csc/ShareIt'
   },
   {
     name: "FashionHub",
     description: "A website for the purchase of fashion wears. This project is a portfolio project jointly created in the ALX software engineering program.",
-    video: 'https://youtube',
+    video: 'https://www.youtube.com/embed/1mGmYQSufSA',
     feature: ['Dynamically load images from a CDN', 'Dynamically create image containers', 'Search functionality', 'Filter functionality', 'Payment validation', 'Automated email using SMTP'],
     user_interface: ['HTML' ,'CSS', 'Javascript'],
-    server: ['Nginx', 'Gunicorn'],
+    server: ['Nginx', 'Gunicorn', 'Python'],
     database: ['MySQL'],
-    trial: 'https://play.google',
-    github: 'https://github.com'
+    trial: 'fashionhub.denniscode.tech',
+    github: 'https://github.com/koko-cs23/FashionHub'
   },
   {
     name: "T-Store",
     description: "An Android app for the purchase of airtime and data. The project has been put on hold. This is due to an issue with the backend VTU vendor.",
-    video: 'https://youtube',
+    video: 'https://www.youtube.com/embed/nQSHDi9sYEY',
     feature: ['Creating grids of cards in Flutter', 'Creating a form in Flutter', 'Connecting to an external API in a server'],
-    user_interface: ['Flutter'],
-    server: ['Nginx', 'Gunicorn'],
+    user_interface: ['Flutter', 'Dart'],
+    server: ['Nginx', 'Gunicorn', 'Python'],
     database: [],
-    trial: 'https://play.google',
-    github: 'https://github.com'
+    trial: 'https://play.google.com/store/apps/details?id=com.denniscode.tstore',
+    github: 'https://github.com/dennis-22-csc/T-Store'
   }
 ];
 
@@ -257,7 +257,7 @@ function navigateToProject(project) {
   const queryParams = new URLSearchParams({ project: projectJSON }).toString();
 
   // Navigate to the target page with the query parameters
-  window.open('https://denniscode.tech/project.html?' + queryParams, '_blank');
+  window.open('project.html?' + queryParams, '_blank');
 }
 
 function handleReadNowClick(event) {
