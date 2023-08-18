@@ -44,15 +44,15 @@ function showMain() {
     const projectsData = [
   {
     name: "Collabio",
-    description: 'An Upwork-like platform for collaborations between designers and developers. Easily find collaborators for your personal projects and projects to collaborate on.',
-    video: 'https://www.youtube.com/embed/JzazIgBVvKg',
-    feature: ['Firebase email authentication', 'Firebase email login', 
+    description: 'An Upwork-like platform for collaborations between designers and developers. Easily find collaborators for your personal projects. Effortlessly find projects to collaborate on.',
+    video: 'https://www.youtube.com/embed/S9ql7nmupFc',
+    feature: ['Firebase email authentication', 'Firebase email login', 'Real time chat', 
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
     user_interface: ['Flutter, Dart'],
-    server: ['Nginx', 'Gunicorn, Python'],
-    database: ['SQLite', 'MySQL'],
-    trial: '',
-    github: ''
+    server: ['Nginx', 'Gunicorn', 'Flask', 'Socketio', 'Python'],
+    database: ['SQLite', 'MySQL', 'Redis'],
+    trial: 'https://play.google.com/store/apps/details?id=com.denniscode.collabio',
+    github: 'https://github.com/dennis-22-csc/collabio'
   },
   {
     name: "ShareIt",
