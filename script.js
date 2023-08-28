@@ -5,7 +5,7 @@ function showMain() {
   const articleCards = document.querySelectorAll('.article-card');
 
   const name = 'Dennis Akpotaire';
-  const profession = 'A Software Engineer';
+  const profession = 'A Mobile App Developer';
 
   let index = 0;
   const typingDelay = 100; // Adjust typing speed (in milliseconds)
@@ -50,7 +50,7 @@ function showMain() {
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
     user_interface: ['Flutter, Dart'],
     server: ['Nginx', 'Gunicorn', 'Flask', 'Socketio', 'Python'],
-    database: ['SQLite', 'MySQL', 'Redis'],
+    database: ['SQLite', 'MySQL', 'Redis', 'Dropbox'],
     trial: 'https://play.google.com/store/apps/details?id=com.denniscode.collabio',
     github: 'https://github.com/dennis-22-csc/collabio'
   },
