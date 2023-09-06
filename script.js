@@ -48,7 +48,7 @@ function showMain() {
     video: 'https://www.youtube.com/embed/oouNHvfD860',
     feature: ['Firebase email authentication', 'Firebase email login', 'Real time chat', 
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
-    user_interface: ['Flutter, Dart'],
+    user_interface: ['Flutter', 'Dart'],
     server: ['Nginx', 'Gunicorn', 'Flask', 'Socketio', 'Python'],
     database: ['SQLite', 'MySQL', 'Redis', 'Dropbox'],
     trial: 'https://play.google.com/store/apps/details?id=com.denniscode.collabio',
@@ -78,7 +78,7 @@ function showMain() {
   },
   {
     name: "T-Store",
-    description: "An Android app for the purchase of airtime and data. The project has been put on hold. This is due to an issue with the backend VTU vendor.",
+    description: "An Android app for the purchase of airtime and data.",
     video: 'https://www.youtube.com/embed/nQSHDi9sYEY',
     feature: ['Creating grids of cards in Flutter', 'Creating a form in Flutter', 'Connecting to an external API in a server'],
     user_interface: ['Flutter', 'Dart'],
