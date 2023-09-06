@@ -44,7 +44,7 @@ function showMain() {
     const projectsData = [
   {
     name: "Collabio",
-    description: 'A platform for finding collaborators for your personal and commercial projects.',
+    description: 'A platform that can be used to find collaborators for personal and commercial projects. The goal of the platform is to ease the process of finding collaborators for programming, design and entrepreneurship projects.  The platform does this by providing an interface where people can create a profile, post projects they desire collaborators on and those whose profiles match the projects will be notified via emails of the posted projects.',
     video: 'https://www.youtube.com/embed/oouNHvfD860',
     feature: ['Firebase email authentication', 'Firebase email login', 'Real time chat', 
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
