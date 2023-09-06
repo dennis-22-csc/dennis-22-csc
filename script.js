@@ -5,7 +5,7 @@ function showMain() {
   const articleCards = document.querySelectorAll('.article-card');
 
   const name = 'Dennis Akpotaire';
-  const profession = 'A Mobile App Developer';
+  const profession = 'A Software Engineer';
 
   let index = 0;
   const typingDelay = 100; // Adjust typing speed (in milliseconds)
@@ -44,8 +44,8 @@ function showMain() {
     const projectsData = [
   {
     name: "Collabio",
-    description: 'An Upwork-like platform for collaborations between designers and developers. Easily find collaborators for your personal projects. Effortlessly find projects to collaborate on.',
-    video: 'https://www.youtube.com/embed/S9ql7nmupFc',
+    description: 'A platform for finding collaborators for your personal and commercial projects.',
+    video: 'https://www.youtube.com/embed/oouNHvfD860',
     feature: ['Firebase email authentication', 'Firebase email login', 'Real time chat', 
 'Logging out', 'Creating and updating user profiles', 'Creating and publishing projects to the backend', 'Loading projects from the backend on app launch if signed in'],
     user_interface: ['Flutter, Dart'],
