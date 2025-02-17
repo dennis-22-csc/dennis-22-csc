@@ -6,8 +6,8 @@
 
 <!-- About Me -->
 ## About Me
-- 🌱 I'm currently learning software engineering at ALX
-- 👨‍🎓 I am currently enrolled in an online computer science degree at the University of People, California
+<!--- 🌱 I'm currently learning software engineering at ALX-->
+<!--- 👨‍🎓 I am currently enrolled in an online computer science degree at the University of People, California-->
 - 💻 I create awesome stuff using my knowledge of Android, Flutter, and Python
 - 📱 Ask me about programming and mobile application development!
 
